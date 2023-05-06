@@ -6,7 +6,7 @@ import Portal from './Main_Routes'
 
 const screen = {
     Login : {
-        screen : Portal,
+        screen : Login,
      
     },
     Forgot : {

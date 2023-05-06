@@ -5,10 +5,10 @@ const {width , height} = Dimensions.get("window")
 export const styles = StyleSheet.create({
     linearBackground : {
         flex : 1,
-        gap : 70,
+        gap : width > 400 ? 70 : 50,
     },
     logo_container : {
-       
+        
     },
     logo_img : {
         width : width - 120,
@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     form : {
         backgroundColor : '#ffffff',
         borderRadius : 10,
-        width : width - 10
+        width : width / 1.09
     },
     btn_login : {
         color : '#ffffff',

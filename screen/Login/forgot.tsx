@@ -3,7 +3,7 @@ import { Text, View, Image, TouchableWithoutFeedback, Button, TouchableOpacity, 
 import LinearGradient from 'react-native-linear-gradient';
 import { TextInput } from 'react-native-gesture-handler';
 
-import { style_bg, style_flex, style_font , style_margin, style_padding, style_txt } from '../../styles/global';
+import { global_bg, global_flex, global_font , global_margin, global_padding, global_txt, global_weight } from '../../styles/global';
 
 import { styles } from './style';
 import { NavigationStackProp } from 'react-navigation-stack';
@@ -18,24 +18,24 @@ type LoginType = {
 export default function Forgot ({navigation} : LoginType)  {
     return (
         <Modal>
-          <View style={[styles.form, style_padding.p_15]}>
-            <View style={[style_flex.row_direction, style_flex.a_center, style_margin.mb_20]}>
+          <View style={[styles.form, global_padding.p_15]}>
+            <View style={[global_flex.row_direction, global_flex.a_center, global_margin.mb_20]}>
                 <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                     <AntDesign name='arrowleft' style={[style_font.f_24, style_font.bold, style_txt.txt_blue, style_margin.mx_10]}/>
+                     <AntDesign name='arrowleft' style={[global_font.body_text, global_weight.bold, global_txt.txt_blue, global_margin.mx_10]}/>
                 </TouchableOpacity>
-                <Text style={[style_font.f_24, style_font.bold, style_txt.txt_blue]}>Forgot Password?</Text>
+                <Text style={[global_font.body_text, global_weight.bold, global_txt.txt_blue]}>Forgot Password?</Text>
 
             </View>
             <Text>Please enter your email address to obtain your new password</Text>
-            <TextInput style={[styles.text_input, style_margin.my_10, style_padding.p_10 ]} placeholder='Enter Email Address'/>
+            <TextInput style={[styles.text_input, global_margin.my_10, global_padding.p_10 ]} placeholder='Enter Email Address'/>
 
-            <TouchableOpacity style={[styles.btn_login, style_bg.bg_primary , style_margin.my_10, style_padding.p_10]}>
-                <Text style={[style_txt.txt_white, style_font.f_18]}>Send</Text>
+            <TouchableOpacity style={[styles.btn_login, global_bg.bg_primary , global_margin.my_10, global_padding.p_10]}>
+                <Text style={[global_txt.txt_white, global_font.body_text]}>Send</Text>
             </TouchableOpacity>
 
-            <View style={[style_flex.row_direction, style_flex.j_center,]}>
+            <View style={[global_flex.row_direction, global_flex.j_center,]}>
                 <TouchableOpacity>
-                    <Text style={[styles.btn_action, style_txt.underline, style_font.f_14]}>Contact Support</Text>
+                    <Text style={[styles.btn_action, global_txt.underline, global_font.small_text]}>Contact Support</Text>
                 </TouchableOpacity>
             </View>
           </View>

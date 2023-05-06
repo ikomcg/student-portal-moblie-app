@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View, TouchableOpacity, Modal, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler';
 
-import { style_bg, style_flex, style_font , style_margin, style_padding, style_txt } from '../../styles/global';
+import { global_bg, global_flex, global_font , global_margin, global_padding, global_txt, global_weight } from '../../styles/global';
 import { styles } from './style';
 
 import AntDesign from 'react-native-vector-icons/AntDesign'
@@ -17,28 +17,28 @@ export default function Contact ({contactVisible, setContactVisibel} : LoginType
         <Modal transparent visible={contactVisible}>
             <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
                 
-                <View style={[style_flex.flex_1, style_flex.a_center, style_flex.j_center, style_flex.col_direction , style_bg.bg_op_black]}>
-                    <View style={[styles.contact, style_bg.bg_white]}>
-                        <View style={[style_flex.row_direction, style_flex.j_end]}>
+                <View style={[global_flex.flex_1, global_flex.a_center, global_flex.j_center, global_flex.col_direction , global_bg.bg_op_black]}>
+                    <View style={[styles.contact, global_bg.bg_white]}>
+                        <View style={[global_flex.row_direction, global_flex.j_end]}>
                             <TouchableOpacity onPress={() => setContactVisibel(false)}>
-                                <AntDesign name='close' style={[style_font.f_24, style_font.bold, style_txt.txt_blue]}/>
+                                <AntDesign name='close' style={[global_font.body_text, global_weight.bold, global_txt.txt_blue]}/>
                             </TouchableOpacity>
                         </View>
                         
-                        <Text style={[style_font.f_24, style_font.bold , style_txt.txt_blue, style_txt.txt_center]}>Contact Support</Text>
+                        <Text style={[global_font.body_text, global_weight.bold, , global_txt.txt_blue, global_txt.txt_center]}>Contact Support</Text>
                         <View>
-                            <TextInput style={[styles.text_input, style_margin.my_5, style_padding.p_10 ]} placeholder='Topic'/>
-                            <TextInput style={[styles.text_input, style_margin.my_5, style_padding.p_10 ]} placeholder='Email'/>
+                            <TextInput style={[styles.text_input, global_margin.my_5, global_padding.p_10 ]} placeholder='Topic'/>
+                            <TextInput style={[styles.text_input, global_margin.my_5, global_padding.p_10 ]} placeholder='Email'/>
                             <TextInput 
-                                    style={[styles.input_description, style_margin.my_5 , style_padding.p_10] } 
+                                    style={[styles.input_description, global_margin.my_5 , global_padding.p_10] } 
                                     editable
                                     multiline={true}
                                     numberOfLines={10}
                                     placeholder='Description....'
                                     />
                         </View>
-                        <TouchableOpacity style={[styles.btn_login, style_bg.bg_primary, style_margin.my_10, style_padding.p_10]}>
-                            <Text style={[style_txt.txt_white, style_font.f_18]}>Send</Text>
+                        <TouchableOpacity style={[styles.btn_login, global_bg.bg_primary, global_margin.my_10, global_padding.p_10]}>
+                            <Text style={[global_txt.txt_white, global_font.small_text]}>Send</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
