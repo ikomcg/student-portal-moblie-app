@@ -10,12 +10,20 @@ import { NavigationStackProp } from 'react-navigation-stack';
 import Modal from '../Modal';
 
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+type DrawerParamList = {
+    Login: any;
+  };
+  
 type LoginType = {
     
-    navigation :  NavigationStackProp<any>
+    navigation :  DrawerNavigationProp<DrawerParamList>
 }
 
 export default function Forgot ({navigation} : LoginType)  {
+
     return (
         <Modal>
           <View style={[styles.form, global_padding.p_15]}>

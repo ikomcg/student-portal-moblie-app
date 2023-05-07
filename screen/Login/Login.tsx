@@ -11,6 +11,14 @@ import {LoginAuth} from '../../api/auth/AuthAPI'
 import Spinner from 'react-native-loading-spinner-overlay';
 import { Formik } from 'formik';
 import * as yup from 'yup'
+import { useRoute, RouteProp } from '@react-navigation/native';
+
+type HomeScreenParams = {
+    setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>    
+  };
+
+type HomeScreenRouteProp = RouteProp<Record<string, HomeScreenParams>, 'Home'>;
+
 
 type LoginType = {
     navigation :  NavigationStackProp<any>
@@ -22,6 +30,7 @@ type LoginuserType = {
 }
 
 export default function Login ({navigation} : LoginType)  {
+    const route = useRoute<HomeScreenRouteProp>();
 
     const [contactVisible , setContactVisibel] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
@@ -36,6 +45,7 @@ export default function Login ({navigation} : LoginType)  {
             const storeData = JSON.stringify(data)
             try{
                 await AsyncStorage.setItem("user" , storeData)
+                route.params?.setIsLoggedIn(true)
                 navigation.navigate("Home")
                 
             }catch(e){

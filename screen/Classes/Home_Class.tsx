@@ -41,6 +41,7 @@ type ClassesTypes = {
             <Text style={[global_txt.txt_blue , global_font.sub_heading, global_weight.bold, global_margin.mx_10]}>Classes</Text>
             <View>
                 <FlatList
+                  showsHorizontalScrollIndicator={false}
                     horizontal = {true}
                     data={subjects}
                     renderItem={({item}) => {

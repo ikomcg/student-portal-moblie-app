@@ -1,34 +1,27 @@
 import { DrawerContentComponentProps } from '@react-navigation/drawer'
-import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import {View, TouchableOpacity, Text, } from 'react-native'
-import { DrawerItem, createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { NavigationStackProp } from 'react-navigation-stack';
-const CustomDrawer = (props : DrawerContentComponentProps) => {
+import { DrawerItem, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-  return (
-    <View>
-        <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
-            <Text>
-                 Logout
-            </Text>
-        </TouchableOpacity>
-    </View>
-  )
-}
 
 export default CustomDrawerContent
-function CustomDrawerContent(props : DrawerContentComponentProps) {
-  const navigation = useNavigation<NavigationStackProp>();
-
-  const handleLogout = () => {
-    navigation.navigate('Login');
+function CustomDrawerContent( props : DrawerContentComponentProps ) {
+  
+  const HandleLogout =async () => {
+  
+    try {
+      await AsyncStorage.removeItem("user")
+    
+    } catch(e) {
+      // remove error
+     }
+     props.navigation.navigate('Login')
   };
 
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
-      <DrawerItem label="Logout" onPress={handleLogout} />
+      <DrawerItem label="Logout" onPress={HandleLogout} />
     </DrawerContentScrollView>
   );
 }
