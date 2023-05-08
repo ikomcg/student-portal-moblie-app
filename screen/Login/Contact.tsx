@@ -33,7 +33,8 @@ export default function Contact ({contactVisible, setContactVisibel} : LoginType
                                     style={[styles.input_description, global_margin.my_5 , global_padding.p_10] } 
                                     editable
                                     multiline={true}
-                                    numberOfLines={10}
+                                    numberOfLines={5}
+                                    
                                     placeholder='Description....'
                                     />
                         </View>

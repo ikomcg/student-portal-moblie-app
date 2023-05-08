@@ -41,5 +41,6 @@ export const styles = StyleSheet.create({
     input_description : {
         borderRadius : 10,
         backgroundColor : '#dcdcdc',
+        textAlignVertical: 'top' 
     }
 })

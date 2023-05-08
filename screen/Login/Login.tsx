@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useContext } from 'react'
 import { Text, View, TouchableOpacity, Alert, Button, Keyboard,  NativeSyntheticEvent, TextInputFocusEventData, Animated} from 'react-native'
-import { TextInput } from 'react-native-gesture-handler';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { global_bg, global_border, global_flex, global_font , global_margin, global_padding, global_txt, global_weight,  } from '../../styles/global';
 import { styles } from './style';
 import { NavigationStackProp } from 'react-navigation-stack';
@@ -11,26 +11,18 @@ import {LoginAuth} from '../../api/auth/AuthAPI'
 import Spinner from 'react-native-loading-spinner-overlay';
 import { Formik } from 'formik';
 import * as yup from 'yup'
-import { useRoute, RouteProp } from '@react-navigation/native';
+import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
+import { UserContext } from '../../context/LoginProvider';
 
-type HomeScreenParams = {
-    setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>    
-  };
-
-type HomeScreenRouteProp = RouteProp<Record<string, HomeScreenParams>, 'Home'>;
-
-
-type LoginType = {
-    navigation :  NavigationStackProp<any>
-}
 type LoginuserType = {
     username : string
     password : string
 
 }
 
-export default function Login ({navigation} : LoginType)  {
-    const route = useRoute<HomeScreenRouteProp>();
+export default function Login ()  {
+    const navigation = useNavigation<NavigationStackProp>()
+   const {toggleIsLogged} = useContext(UserContext)
 
     const [contactVisible , setContactVisibel] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
@@ -45,9 +37,7 @@ export default function Login ({navigation} : LoginType)  {
             const storeData = JSON.stringify(data)
             try{
                 await AsyncStorage.setItem("user" , storeData)
-                route.params?.setIsLoggedIn(true)
-                navigation.navigate("Home")
-                
+                toggleIsLogged(true)
             }catch(e){
                 Alert.alert("Something wrong")
             }
@@ -98,7 +88,7 @@ export default function Login ({navigation} : LoginType)  {
                                    />
                                     <TouchableOpacity style={[styles.btn_login, global_bg.bg_primary , global_margin.my_10, global_padding.p_10]} 
                                         onPress={() => props.handleSubmit()}>
-                                        <Text style={[global_txt.txt_white, global_font.small_text ,  global_padding.p_5]}>Log in</Text>
+                                        <Text style={[global_txt.txt_white, global_font.small_text, global_padding.p_5]}>Log in</Text>
                                     </TouchableOpacity>
                                     
                                 </View>

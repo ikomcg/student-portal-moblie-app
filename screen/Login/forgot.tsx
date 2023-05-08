@@ -10,20 +10,10 @@ import { NavigationStackProp } from 'react-navigation-stack';
 import Modal from '../Modal';
 
 import AntDesign from 'react-native-vector-icons/AntDesign'
-import { DrawerNavigationProp } from '@react-navigation/drawer';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
-type DrawerParamList = {
-    Login: any;
-  };
-  
-type LoginType = {
-    
-    navigation :  DrawerNavigationProp<DrawerParamList>
-}
-
-export default function Forgot ({navigation} : LoginType)  {
-
+export default function Forgot ()  {
+    const navigation = useNavigation<NavigationStackProp>()
     return (
         <Modal>
           <View style={[styles.form, global_padding.p_15]}>
@@ -38,7 +28,7 @@ export default function Forgot ({navigation} : LoginType)  {
             <TextInput style={[styles.text_input, global_margin.my_10, global_padding.p_10 ]} placeholder='Enter Email Address'/>
 
             <TouchableOpacity style={[styles.btn_login, global_bg.bg_primary , global_margin.my_10, global_padding.p_10]}>
-                <Text style={[global_txt.txt_white, global_font.body_text]}>Send</Text>
+                <Text style={[global_txt.txt_white, global_font.small_text]}>Send</Text>
             </TouchableOpacity>
 
             <View style={[global_flex.row_direction, global_flex.j_center,]}>

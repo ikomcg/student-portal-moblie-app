@@ -6,16 +6,19 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { BaseUser } from '../types/User'
 import Classes from './Classes/Home_Class'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
+
 const Dashboard = () => {
+
     const [user, setUser] = useState<BaseUser | null>(null)
+
     useEffect(() => {
         GetDataStorage()
     },[])
+
     const GetDataStorage = async () => {
         try{
             const userValue = await AsyncStorage.getItem('user')
             if(!userValue) return
-            
             setUser(JSON.parse(userValue))
         }
         catch(e){
@@ -52,11 +55,3 @@ const Dashboard = () => {
     )
 }
 export default Dashboard
-
-const styles = StyleSheet.create({
-    text_input : {
-        borderRadius : 10,
-        paddingLeft : 10
-        
-    }
-})

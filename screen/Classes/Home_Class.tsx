@@ -38,7 +38,7 @@ type ClassesTypes = {
 
     return (
         <View style={[global_margin.mt_10]}>
-            <Text style={[global_txt.txt_blue , global_font.sub_heading, global_weight.bold, global_margin.mx_10]}>Classes</Text>
+            <Text style={[global_txt.txt_blue , global_font.body_text, global_weight.bold, global_margin.mx_10]}>Classes</Text>
             <View>
                 <FlatList
                   showsHorizontalScrollIndicator={false}
