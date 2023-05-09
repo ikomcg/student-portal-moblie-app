@@ -1,9 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {useEffect, useState} from 'react'
-import { Alert, FlatList, Text, View, StyleSheet } from "react-native"
+import { Alert, FlatList, Text, View, StyleSheet, ScrollView } from "react-native"
 import { global_bg, global_flex, global_margin, global_font, global_weight, global_txt } from '../../styles/global'
 import { GetSubjectStudentApi } from '../../api/student/HomePage'
 import { BaseUser } from '../../types/User'
+import Assignment from './Assignment/Assignment'
 
 type SubjectType = {
     id : string
@@ -39,7 +40,7 @@ type ClassesTypes = {
     return (
         <View style={[global_margin.mt_10]}>
             <Text style={[global_txt.txt_blue , global_font.body_text, global_weight.bold, global_margin.mx_10]}>Classes</Text>
-            <View>
+            <ScrollView>
                 <FlatList
                   showsHorizontalScrollIndicator={false}
                     horizontal = {true}
@@ -59,7 +60,8 @@ type ClassesTypes = {
                     )
                     }}      
                 />
-            </View>
+                <Assignment/>
+            </ScrollView>
         </View>
     )
 }

@@ -4,7 +4,7 @@ import { Alert, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableWith
 import { global_bg, global_flex, global_font, global_margin, global_padding, global_txt, global_weight } from '../styles/global'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { BaseUser } from '../types/User'
-import Classes from './Classes/Home_Class'
+import Classes from './Home/Home_Class'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
 
 const Dashboard = () => {

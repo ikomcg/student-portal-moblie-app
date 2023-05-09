@@ -8,6 +8,8 @@ import { DrawerContentComponentProps } from '@react-navigation/drawer'
 import { DrawerItem, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { UserContext } from '../context/LoginProvider';
+import Bottom_Drawer from './Bottom_Drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 
@@ -34,7 +36,7 @@ function CustomDrawerContent(props : DrawerContentComponentProps ) {
 }
 const Drawer = createDrawerNavigator();
 
-function LeftDrawerScreen() {
+export function LeftDrawerScreen() {
   return (
     <Drawer.Navigator
       id="LeftDrawer"
@@ -51,7 +53,7 @@ function LeftDrawerScreen() {
    
   );
 }
-
+const Tab = createBottomTabNavigator();
 export default function Portal_Routes() {
   
   return (
@@ -64,9 +66,16 @@ export default function Portal_Routes() {
           }}
         >
         <Drawer.Screen
-          name="Right_Drawer"
+          name="Dashboard"
           component={LeftDrawerScreen}/>
       </Drawer.Navigator>
+      {/* <Tab.Navigator
+      screenOptions={{
+        headerShown : false,
+      }}>
+        
+        <Tab.Screen name ="Home" component={Home}/>
+      </Tab.Navigator> */}
     </NavigationContainer>
       
   );

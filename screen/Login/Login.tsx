@@ -84,6 +84,7 @@ export default function Login ()  {
                                     placeholder='PASSWORD'
                                     onChangeText={props.handleChange('password')}
                                     onBlur={props.handleBlur('password')}
+                                    isSecure={true}
                                     onError={props.touched.password && props.errors.password !== undefined}
                                    />
                                     <TouchableOpacity style={[styles.btn_login, global_bg.bg_primary , global_margin.my_10, global_padding.p_10]} 
@@ -136,8 +137,9 @@ type FormInputType = {
     onChangeText : ((text: string) => void) | undefined
     onBlur :  ((e: NativeSyntheticEvent <TextInputFocusEventData>) => void) | undefined
     onError : boolean | undefined
+    isSecure? : boolean
 }
-const FormInput = ({value,placeholder,onChangeText,onBlur,onError}: FormInputType) => {
+const FormInput = ({value,placeholder,onChangeText,onBlur,onError,isSecure}: FormInputType) => {
 
     return(
         <TextInput 
@@ -145,6 +147,7 @@ const FormInput = ({value,placeholder,onChangeText,onBlur,onError}: FormInputTyp
         style={[styles.text_input, global_font.small_text, global_padding.px_20, global_margin.my_10, global_padding.p_10, onError ? global_border.brd_red : global_border.brd_none, {borderWidth : .7}]} 
         placeholder={placeholder} 
         keyboardType='default'
+        secureTextEntry={isSecure ?? false}
         onChangeText={onChangeText}
         onBlur={onBlur}/>
     )

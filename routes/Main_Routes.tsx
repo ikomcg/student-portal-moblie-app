@@ -9,7 +9,7 @@ const Main_Routes = () => {
   return (
     <>
       {
-        isLoggedIn ? <Portal_Routes/> : <StackNavigator/>
+        !isLoggedIn ? <Portal_Routes/> : <StackNavigator/>
       }
     </>
 
