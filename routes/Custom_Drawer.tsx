@@ -69,13 +69,6 @@ export default function Portal_Routes() {
           name="Dashboard"
           component={LeftDrawerScreen}/>
       </Drawer.Navigator>
-      {/* <Tab.Navigator
-      screenOptions={{
-        headerShown : false,
-      }}>
-        
-        <Tab.Screen name ="Home" component={Home}/>
-      </Tab.Navigator> */}
     </NavigationContainer>
       
   );
